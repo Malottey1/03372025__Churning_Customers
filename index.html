@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\\Users\\a\\OneDrive - Ashesi University\\Churn Prediction\\static\\main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    
+    <title>Churn AI</title>
+</head>
+
+<body  style="background-image: url('static/images/churn_back.png');">
+    <header>
+        <img class="logo" src="{{ url_for('static', filename='images/churn_logo.png') }}" alt="Logo">
+        <button class="scroll-button" onclick="scrollToForm()">Predict</button>
+    </header>
+
+    <div class="intro">
+        <img src="{{ url_for('static', filename='images/churn_rot.png') }}" alt="Logo" class="intro-logo">
+        <p>CHURN AI: Your Predictive Partner for Customer Retention.</p>
+        <p> Identify and engage at-risk customers, tailor personalized retention strategies, and boost customer satisfaction with our cutting-edge AI model.</p>
+        <p> Stay ahead in the competitive telecom landscape</p>
+    </div>
+
+    <div class="form-container">
+        <div class="form-box">
+            <form action="/predict" method="post">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            
+                <label for="SeniorCitizen">Senior Citizen:</label>
+                <select id="SeniorCitizen" name="SeniorCitizen">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            
+                <label for="tenure">Tenure:</label>
+                <input type="number" id="Tenure" name="tenure" required>
+            
+                <label for="InternetService">Internet Service:</label>
+                <select id="InternetService" name="InternetService">
+                    <option value="DSL">DSL</option>
+                    <option value="Fiber optic">Fiber Optic</option>
+                    <option value="No">No</option>
+                </select>
+            
+                <label for="OnlineSecurity">Online Security:</label>
+                <select id="OnlineSecurity" name="OnlineSecurity">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            
+                <label for="Contract">Contract:</label>
+                <select id="Contract" name="Contract">
+                    <option value="One year">One year</option>
+                    <option value="Two year">Two years</option>
+                    <option value="Month-to-month">Month-to-month</option>
+                </select>
+            
+                <label for="PaperlessBilling">Paperless Billing:</label>
+                <select id="PaperlessBilling" name="PaperlessBilling">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            
+                <label for="PaymentMethod">Payment Method:</label>
+                <select id="PaymentMethod" name="PaymentMethod">
+                    <option value="Electronic check">Electronic check</option>
+                    <option value="Mailed check">Mailed check</option>
+                    <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                    <option value="Credit card (automatic)">Credit card (automatic)</option>
+                </select>
+            
+                <label for="MonthlyCharges">Monthly Charges:</label>
+                <input type="number" id="MonthlyCharges" name="MonthlyCharges" step="0.01" required>
+            
+                <label for="TotalCharges">Total Charges:</label>
+                <input type="number" id="TotalCharges" name="TotalCharges" step="0.01" required>
+            
+                <label for="Streaming">Streaming:</label>
+                <select id="Streaming" name="Streaming">
+                    <option value="2">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            
+                <button type="submit">Predict</button>
+            </form>
+            <p class="intro" >{{ prediction }}</p>
+            
+        </div>
+    </div>
+
+    <footer>
+        <p>Developed by <img class="developer-logo" src="{{ url_for('static', filename='images/malottey.png') }}" alt="Developer Logo"></p>
+    </footer>
+
+    <script>
+        function scrollToForm() {
+            document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
