@@ -44,6 +44,11 @@ The code is written in Python and requires the following libraries:
 
 3. Enter customer details and click 'Predict' to get churn predictions.
 
+## Video
+
+[Watch the video](Malcolm_Clottey_Churn_Video.mp4)
+
+
 ## Developer
 
 - Developed by Malottey (Malcolm Clottey)
